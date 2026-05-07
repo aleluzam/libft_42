@@ -3,12 +3,12 @@ CFLAGS := -Wall -Wextra -Werror
 ARS := ar rcs
 SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
-TARGET := libft.a
+NAME := libft.a
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(ARS) $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(ARS) $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I . -c $< -o $@
@@ -17,7 +17,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
 
