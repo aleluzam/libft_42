@@ -30,7 +30,7 @@ static size_t	ft_recursive_count(int n)
 	return (counter);
 }
 
-char	*ft_loop(char *new, size_t len, int n)
+static char	*ft_loop(char *new, size_t len, int n)
 {
 	size_t	i;
 
