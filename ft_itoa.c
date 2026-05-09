@@ -6,7 +6,7 @@
 /*   By: luzardo <luzardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 14:22:20 by aluzardo          #+#    #+#             */
-/*   Updated: 2026/04/30 17:49:14 by luzardo          ###   ########.fr       */
+/*   Updated: 2026/05/09 12:38:27 by luzardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,40 @@ static size_t	ft_recursive_count(int n)
 	return (counter);
 }
 
-static void	ft_start_variables(size_t *i, size_t *len, int n)
+char	*ft_loop(char *new, size_t len, int n)
 {
-	*i = 1;
-	*len = ft_recursive_count(n);
-}
-
-char	*ft_itoa(int n)
-{
-	size_t	len;
 	size_t	i;
-	char	*new;
 
-	if (n == -2147483648)
-		return ("-2147483648");
-	if (n == 0)
-		return ("0");
-	ft_start_variables(&i, &len, n);
-	new = ft_calloc(len + 1, sizeof(char));
-	if (!new)
-		return (NULL);
+	i = 1;
 	if (n < 0)
+	{
 		new[0] = '-';
+		n *= -1;
+	}
 	while (i < len)
 	{
 		new[len - i] = '0' + (n % 10);
 		n = n / 10;
 		i++;
 	}
-	if (n >= 0)
+	if (n > 0)
 		new[0] = '0' + (n % 10);
+	return (new);
+}
+
+char	*ft_itoa(int n)
+{
+	size_t	len;
+	char	*new;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	len = ft_recursive_count(n);
+	new = ft_calloc(len + 1, sizeof(char));
+	if (!new)
+		return (NULL);
+	new = ft_loop(new, len, n);
 	return (new);
 }

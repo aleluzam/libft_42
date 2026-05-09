@@ -3,34 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluzardo <aluzardo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luzardo <luzardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 15:04:09 by luzardo           #+#    #+#             */
-/*   Updated: 2026/05/03 11:55:27 by aluzardo         ###   ########.fr       */
+/*   Created: 2026/05/07 12:52:42 by luzardo           #+#    #+#             */
+/*   Updated: 2026/05/07 13:39:51 by luzardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_isspace(int c)
+{
+	return (c == 32 || (c >= 9 && c <= 13));
+}
+
 int	ft_atoi(const char *str)
 {
 	int	result;
+	int	i;
 	int	s;
 
 	result = 0;
 	s = 1;
-	while (*str && (*str < 65 || (*str > 90 && *str < 97) || *str > 122))
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' && str[i + 1] != '-')
+		i++;
+	if (str[i] == '-')
 	{
-		if (*str == '-')
-			s = s * -1;
-		while (*str >= 48 && *str <= 57)
-		{
-			result = result * 10 + (*str - '0');
-			str++;
-		}
-		if (result != 0)
-			return (result * s);
-		str++;
+		s = -1;
+		i++;
 	}
-	return (0);
+	while (str[i] && (str[i] > 47 && str[i] < 58))
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result * s);
 }

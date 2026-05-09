@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aluzardo <aluzardo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luzardo <luzardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 11:49:55 by luzardo           #+#    #+#             */
-/*   Updated: 2026/05/03 10:52:02 by aluzardo         ###   ########.fr       */
+/*   Updated: 2026/05/07 12:44:32 by luzardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (*string == (unsigned char)c)
-			return ((void *)s);
+			return ((void *)string);
 		i++;
-		s++;
+		string++;
 	}
 	return (NULL);
 }
