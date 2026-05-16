@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luzardo <luzardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aluzardo <aluzardo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 14:05:16 by aluzardo          #+#    #+#             */
-/*   Updated: 2026/05/09 13:41:41 by luzardo          ###   ########.fr       */
+<<<<<<< HEAD
+/*   Updated: 2026/05/13 11:16:52 by aluzardo         ###   ########.fr       */
+=======
+/*   Updated: 2026/05/16 11:09:09 by aluzardo         ###   ########.fr       */
+>>>>>>> f6c88ed (return (dest))
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +23,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*s;
 
 	if (!dest || !src)
-		return (NULL);
+		return (dest);
 	i = 0;
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
