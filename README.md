@@ -1,7 +1,3 @@
-_This project has been created as part of the 42 curriculum by aluzardo_
-
----
-
 # Description
 
 Libft is the first project of the 42 curriculum. The goal is to build our own C library from scratch. By doing this, we learn how standard functions work internally, how to work with linked lists, and how a static library is built in C.
